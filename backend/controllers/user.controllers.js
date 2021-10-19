@@ -44,6 +44,7 @@ const loginUser = async (req, res) => {
   const isValid = Joi.object({
     username: Joi.string().min(3).required(),
     password: Joi.string().min(8).required(),
+    usertype: Joi.string().required(),
   }).validate(req.body, { abortEarly: false, allowUnknown: false });
 
   if (isValid.error) {
@@ -52,10 +53,10 @@ const loginUser = async (req, res) => {
       .json({ status: "error", message: "Invalid username/password" });
   }
 
-  const { username, password } = req.body;
+  const { username, password, usertype } = req.body;
 
   try {
-    const user = await User.findOne({ username }).lean();
+    const user = await User.findOne({ username, usertype }).lean();
 
     if (!user) {
       return res
@@ -107,6 +108,7 @@ const changePassword = async (req, res) => {
 
     const _id = user.id;
     const password = await bcrypt.hash(newPassword, BCRYPT_SALTS);
+
     await User.updateOne({ _id }, { $set: { password } });
 
     res
