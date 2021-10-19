@@ -3,6 +3,8 @@ const bcrypt = require("bcryptjs");
 const Joi = require("joi");
 const jwt = require("jsonwebtoken");
 
+const BCRYPT_SALTS = 10;
+
 const registerUser = async (req, res) => {
   const isValid = Joi.object({
     fullname: Joi.string().required(),
@@ -18,10 +20,7 @@ const registerUser = async (req, res) => {
       .json({ message: "Input invalid", error: isValid.error.details });
   }
 
-  const hashedPassword = await bcrypt.hash(
-    req.body.password,
-    process.env.BCRYPT_SALTS
-  );
+  const hashedPassword = await bcrypt.hash(req.body.password, BCRYPT_SALTS);
 
   const userObj = new User({
     fullname: req.body.fullname,
@@ -107,7 +106,7 @@ const changePassword = async (req, res) => {
     const user = jwt.verify(token, process.env.JWT_SECRET);
 
     const _id = user.id;
-    const password = await bcrypt.hash(newPassword, process.env.BCRYPT_SALTS);
+    const password = await bcrypt.hash(newPassword, BCRYPT_SALTS);
     await User.updateOne({ _id }, { $set: { password } });
 
     res
