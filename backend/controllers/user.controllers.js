@@ -16,7 +16,7 @@ const registerUser = async (req, res) => {
 
   if (isValid.error) {
     return res
-      .status(201)
+      .status(400)
       .json({ message: "Input invalid", error: isValid.error.details });
   }
 
@@ -33,10 +33,10 @@ const registerUser = async (req, res) => {
   try {
     userObj.save();
     res
-      .status(200)
+      .status(201)
       .json({ status: "ok", message: "User successfully created!" });
   } catch {
-    res.status(201).json({ status: "error", message: "User creation failed!" });
+    res.status(400).json({ status: "error", message: "User creation failed!" });
   }
 };
 
@@ -49,7 +49,7 @@ const loginUser = async (req, res) => {
 
   if (isValid.error) {
     return res
-      .status(201)
+      .status(400)
       .json({ status: "error", message: "Invalid username/password" });
   }
 
@@ -60,7 +60,7 @@ const loginUser = async (req, res) => {
 
     if (!user) {
       return res
-        .status(201)
+        .status(400)
         .json({ status: "error", message: "Invalid username/password" });
     }
 
@@ -82,26 +82,26 @@ const loginUser = async (req, res) => {
     }
 
     res
-      .status(201)
+      .status(400)
       .json({ status: "error", message: "Invalid username/password" });
   } catch {
-    res.status(201).json({ status: "error", message: "Server Error!" });
+    res.status(500).json({ status: "error", message: "Server Error!" });
   }
 };
 
 const changePassword = async (req, res) => {
   const isValid = Joi.object({
-    token: Joi.string().required(),
     newPassword: Joi.string().min(8).required(),
   }).validate(req.body, { abortEarly: false, allowUnknown: false });
 
   if (isValid.error) {
     return res
-      .status(201)
+      .status(400)
       .json({ status: "error", message: "Invalid password" });
   }
 
-  const { token, newPassword } = req.body;
+  const { newPassword } = req.body;
+  const { token } = req.headers;
 
   try {
     const user = jwt.verify(token, process.env.JWT_SECRET);
@@ -115,7 +115,7 @@ const changePassword = async (req, res) => {
       .status(200)
       .json({ status: "ok", message: "Password successully changed!" });
   } catch {
-    res.status(201).json({ status: "error", message: "Server Error!" });
+    res.status(500).json({ status: "error", message: "Server Error!" });
   }
 };
 
