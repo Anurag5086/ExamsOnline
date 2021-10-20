@@ -1,15 +1,34 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const bodyParser = require("body-parser");
+const swaggerJsDoc = require("swagger-jsdoc");
+const swaggerUi = require("swagger-ui-express");
 require("dotenv").config();
 
 const app = express();
-
-//BodyParser middleware
-app.use(bodyParser.json());
+app.use(express.json());
 
 // require routes
 const routes = require("./routes");
+
+// Extended: https://swagger.io/specification/#infoObject
+const swaggerOptions = {
+  swaggerDefinition: {
+    info: {
+      version: "1.0.0",
+      title: "ExmasOnline API",
+      description: "ExamsOnline API Information",
+      contact: {
+        name: "Anurag Gupta",
+      },
+      servers: ["http://localhost:5000/"],
+    },
+  },
+  apis: ["./routes/*.js"],
+};
+
+// Swagger-route
+const swaggerDocs = swaggerJsDoc(swaggerOptions);
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
 //MongoDB Connection
 mongoose
