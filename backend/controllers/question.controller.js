@@ -1,6 +1,7 @@
 const Question = require("../models/Question");
 const Joi = require("joi");
 const jwt = require("jsonwebtoken");
+const { verifyTeacher } = require("../middleware/authMiddleware");
 
 const getAllQuestions = async (req, res) => {
   try {
@@ -42,17 +43,17 @@ const addQuestion = async (req, res) => {
     });
   }
 
+  const user = verifyTeacher(req, res);
+
+  if (!user) {
+    return res
+      .status(400)
+      .json({ status: "error", message: "User not verified!" });
+  }
+
+  const username = user.username;
+
   try {
-    const user = await jwt.verify(token, process.env.JWT_SECRET);
-
-    if (user.usertype == "Student") {
-      return res.status(403).json({
-        status: "forbidden",
-        message: "You are not allowed to perform this action!",
-      });
-    }
-
-    const username = user.username;
     const { ...body } = req.body;
 
     const questionObj = new Question({

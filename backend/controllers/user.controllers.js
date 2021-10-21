@@ -103,6 +103,13 @@ const changePassword = async (req, res) => {
   const { newPassword } = req.body;
   const { token } = req.headers;
 
+  if (!token) {
+    return res.status(403).json({
+      status: "forbidden",
+      message: "Please check your authentication!",
+    });
+  }
+
   try {
     const user = jwt.verify(token, process.env.JWT_SECRET);
 

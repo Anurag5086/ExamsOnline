@@ -1,6 +1,9 @@
 const Test = require("../models/Test");
 const Joi = require("joi");
-const jwt = require("jsonwebtoken");
+const {
+  verifyTeacher,
+  verifyStudent,
+} = require("../middleware/authMiddleware");
 
 const createTest = async (req, res) => {
   const isValid = Joi.object({
@@ -18,19 +21,24 @@ const createTest = async (req, res) => {
       .json({ message: "Input invalid", error: isValid.error.details });
   }
 
-  const { token } = req.headers;
-  const user = jwt.verify(token, process.env.JWT_SECRET);
-  const { ...body } = req.body;
-
-  const username = user.username;
-  const usertype = user.usertype;
-
-  if (usertype == "Student") {
+  const token = req.headers.token;
+  if (!token) {
     return res.status(403).json({
       status: "forbidden",
-      message: "You are not allowed to perform this action!",
+      message: "Please check your authentication!",
     });
   }
+
+  const user = verifyTeacher(token);
+
+  if (!user) {
+    return res
+      .status(400)
+      .json({ status: "error", message: "User not verified!" });
+  }
+
+  const { ...body } = req.body;
+  const username = user.username;
 
   const testObj = new Test({
     ...body,
