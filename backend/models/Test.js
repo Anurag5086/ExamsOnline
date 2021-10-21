@@ -1,38 +1,30 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const QuestionSchema = new Schema(
+const TestSchema = new Schema(
   {
-    title: {
-      type: String,
-      required: true,
-    },
-    description: {
-      type: String,
-      required: true,
-    },
-    option1: {
-      type: String,
-      required: true,
-    },
-    option2: {
-      type: String,
-      required: true,
-    },
-    option3: {
-      type: String,
-      required: true,
-    },
-    option4: {
-      type: String,
-      required: true,
-    },
-    correctOption: {
-      type: String,
-      required: true,
-    },
     testId: {
       type: String,
+      required: true,
+      unique: true,
+    },
+    subject: {
+      type: String,
+      required: true,
+    },
+    testtitle: {
+      type: String,
+      required: true,
+    },
+    testdescription: {
+      type: String,
+    },
+    starttime: {
+      type: Date,
+      required: true,
+    },
+    endtime: {
+      type: Date,
       required: true,
     },
     createdBy: {
@@ -49,4 +41,4 @@ const QuestionSchema = new Schema(
   }
 );
 
-module.exports = Questions = mongoose.model("questions", QuestionSchema);
+module.exports = Tests = mongoose.model("tests", TestSchema);
