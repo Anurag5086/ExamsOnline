@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import SignIn from "./Pages/Auth/SignIn";
 import Signup from "./Pages/Auth/Signup";
 import Dashboard from "./Pages/Teacher/Dashboard";
+import CreateTest from "./Pages/Teacher/CreateTest";
 
 function App() {
   return (
@@ -17,6 +18,9 @@ function App() {
         </Route>
         <Route exact path="/teacher/dashboard">
           <Dashboard />
+        </Route>
+        <Route exact path="/teacher/createtest">
+          <CreateTest />
         </Route>
       </Switch>
     </Router>
