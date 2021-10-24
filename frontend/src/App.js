@@ -1,9 +1,9 @@
-import React from 'react';
-import './App.css';
-import { BrowserRouter as Router , Route, Switch} from 'react-router-dom';
-import SignIn from './Pages/Auth/SignIn';
-import Signup from './Pages/Auth/Signup';
-import Dashboard from './Pages/Teacher/Dashboard';
+import React from "react";
+import "./App.css";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import SignIn from "./Pages/Auth/SignIn";
+import Signup from "./Pages/Auth/Signup";
+import Dashboard from "./Pages/Teacher/Dashboard";
 
 function App() {
   return (
