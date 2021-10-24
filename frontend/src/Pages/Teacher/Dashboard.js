@@ -7,13 +7,16 @@ import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import AlignItemsList from '../../page-components/Teacher/List';
+import Navbar from './Navbar';
 
 
 export default function Dashboard() {
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <Grid container spacing={2}>
-        <Grid item xs={12}>
+    <div>
+        <Navbar />
+        <Box sx={{ flexGrow: 1 }}>
+        <Grid container spacing={2}>
+        <Grid item xs={6}>
         <Box sx={{ minWidth: 275 }}>
         <Card variant="outlined">
             <CardContent>
@@ -36,7 +39,7 @@ export default function Dashboard() {
         </Card>
         </Box>
         </Grid>
-        <Grid item xs={12}>
+        <Grid item xs={6}>
             <Box sx={{ minWidth: 275 }}>
             <Card variant="outlined">
                 <CardContent>
@@ -67,6 +70,7 @@ export default function Dashboard() {
         </Grid>
       </Grid>
     </Box>
+    </div>
   );
 }
 
