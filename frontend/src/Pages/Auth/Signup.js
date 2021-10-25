@@ -10,7 +10,34 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import Radio from '@mui/material/Radio';
+import RadioGroup from '@mui/material/RadioGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import FormControl from '@mui/material/FormControl';
+import FormLabel from '@mui/material/FormLabel';
 
+export function ControlledRadioButtonsGroup() {
+  const [value, setValue] = React.useState('Student');
+
+  const handleChange = (event) => {
+    setValue(event.target.value);
+  };
+
+  return (
+    <FormControl component="fieldset">
+      <FormLabel component="legend">Sign Up As:</FormLabel>
+      <RadioGroup
+        aria-label="gender"
+        name="controlled-radio-buttons-group"
+        value={value}
+        onChange={handleChange}
+      >
+        <FormControlLabel value="Student" control={<Radio />} label="Student" />
+        <FormControlLabel value="Teacher" control={<Radio />} label="Teacher" />
+      </RadioGroup>
+    </FormControl>
+  );
+}
 
 const theme = createTheme();
 
@@ -86,6 +113,9 @@ function Signup() {
                   id="password"
                   autoComplete="new-password"
                 />
+              </Grid>
+              <Grid item xs={12}>
+              <ControlledRadioButtonsGroup />
               </Grid>
             </Grid>
             <Button
