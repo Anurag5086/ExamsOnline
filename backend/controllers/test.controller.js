@@ -11,8 +11,7 @@ const createTest = async (req, res) => {
     starttime: Joi.date().required(),
     endtime: Joi.date().required(),
     testtitle: Joi.string().required(),
-    testId: Joi.string().required(),
-    subject: Joi.string().required(),
+    testsubject: Joi.string().required(),
   }).validate(req.body, { abortEarly: false, allowUnknown: false });
 
   if (isValid.error) {
@@ -39,9 +38,10 @@ const createTest = async (req, res) => {
 
   const { ...body } = req.body;
   const username = user.username;
-
+  const testId = `${req.body.testtitle}-8`;
   const testObj = new Test({
     ...body,
+    testId: testId,
     createdBy: username,
   });
 
