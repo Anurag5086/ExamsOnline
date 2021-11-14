@@ -9,17 +9,12 @@ import AddCircleIcon from "@mui/icons-material/AddCircle";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import AdapterDateFns from "@mui/lab/AdapterDateFns";
-import LocalizationProvider from "@mui/lab/LocalizationProvider";
-import DateTimePicker from "@mui/lab/DateTimePicker";
 import Navbar from "./Navbar";
 import axios from "axios";
 
 const theme = createTheme();
 
 export default function AddQuestion() {
-  const [startvalue, setStartValue] = useState(new Date());
-  const [endvalue, setEndValue] = useState(new Date());
   const [testTitle, setTestTitle] = useState();
   const [testDescription, setTestDescription] = useState();
   const [testSubject, setTestSubject] = useState();
@@ -31,8 +26,6 @@ export default function AddQuestion() {
         testtitle: testTitle,
         testsubject: testSubject,
         testdescription: testDescription,
-        starttime: startvalue,
-        endtime: endvalue,
       })
       .then((res) => console.log(res.data));
   };
