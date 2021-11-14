@@ -25,6 +25,7 @@ export default function Navbar() {
             WELCOME
           </Typography>
           <Button color="inherit">Generate Report</Button>
+          <Button color="inherit">Try Previous Questions</Button>
         </Toolbar>
       </AppBar>
     </Box>
