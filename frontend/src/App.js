@@ -40,10 +40,10 @@ function App() {
         <Route exact path="/student/questionBank">
           <QuestionBank />
         </Route>
-        <Route exact path="/teacher/test">
+        <Route exact path="/test">
           <TestList />
         </Route>
-        <Route exact path="/teacher/test/:testID">
+        <Route exact path="/test/:testID">
           <Test />
         </Route>
       </Switch>

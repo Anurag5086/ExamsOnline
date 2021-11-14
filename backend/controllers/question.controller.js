@@ -7,7 +7,7 @@ const getAllQuestions = async (req, res) => {
   try {
     const questions = await Question.find();
     if (questions) {
-      res.status(200).json({ status: "ok", data: questions });
+      res.status(200).json({ status: "ok", questions });
     } else {
       res
         .status(400)
