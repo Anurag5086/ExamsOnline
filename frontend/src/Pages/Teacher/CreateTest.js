@@ -57,7 +57,7 @@ export default function CreateTest() {
   return (
     <ThemeProvider theme={theme}>
       <Navbar />
-      <Container component="main" maxWidth="xs">
+      <Container component="main" maxWidth="md">
         <CssBaseline />
         <Box
           sx={{

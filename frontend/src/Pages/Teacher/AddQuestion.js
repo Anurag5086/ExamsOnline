@@ -15,19 +15,23 @@ import axios from "axios";
 const theme = createTheme();
 
 export default function AddQuestion() {
-  const [testTitle, setTestTitle] = useState();
-  const [testDescription, setTestDescription] = useState();
-  const [testSubject, setTestSubject] = useState();
+  const [questionTitle, setQuestionTitle] = useState();
+  const [questionDescription, setQuestionDescription] = useState();
+  const [option1, setOption1] = useState();
+  const [option2, setOption2] = useState();
+  const [option3, setOption3] = useState();
+  const [option4, setOption4] = useState();
+  const [correctOption, setCorrectOption] = useState();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios
-      .post("/api/test/createtest", {
-        testtitle: testTitle,
-        testsubject: testSubject,
-        testdescription: testDescription,
-      })
-      .then((res) => console.log(res.data));
+    // axios
+    //   .post("/api/test/createtest", {
+    //     testtitle: testTitle,
+    //     testsubject: testSubject,
+    //     testdescription: testDescription,
+    //   })
+    //   .then((res) => console.log(res.data));
   };
 
   return (
@@ -58,7 +62,7 @@ export default function AddQuestion() {
                   id="title"
                   label="Question Title"
                   name="title"
-                  onChange={(e) => setTestTitle(e.target.value)}
+                  onChange={(e) => setQuestionTitle(e.target.value)}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -70,7 +74,7 @@ export default function AddQuestion() {
                   label="Question Description"
                   name="description"
                   rows={5}
-                  onChange={(e) => setTestDescription(e.target.value)}
+                  onChange={(e) => setQuestionDescription(e.target.value)}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -80,7 +84,7 @@ export default function AddQuestion() {
                   id="option1"
                   label="Option 1"
                   name="option1"
-                  onChange={(e) => setTestSubject(e.target.value)}
+                  onChange={(e) => setOption1(e.target.value)}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -90,7 +94,7 @@ export default function AddQuestion() {
                   id="option2"
                   label="Option 2"
                   name="option2"
-                  onChange={(e) => setTestSubject(e.target.value)}
+                  onChange={(e) => setOption2(e.target.value)}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -100,7 +104,7 @@ export default function AddQuestion() {
                   id="option3"
                   label="Option 3"
                   name="option3"
-                  onChange={(e) => setTestSubject(e.target.value)}
+                  onChange={(e) => setOption3(e.target.value)}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -110,7 +114,7 @@ export default function AddQuestion() {
                   id="option4"
                   label="Option 4"
                   name="option4"
-                  onChange={(e) => setTestSubject(e.target.value)}
+                  onChange={(e) => setOption4(e.target.value)}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -120,7 +124,7 @@ export default function AddQuestion() {
                   id="correctOption"
                   label="Correct Option"
                   name="correctOption"
-                  onChange={(e) => setTestSubject(e.target.value)}
+                  onChange={(e) => setCorrectOption(e.target.value)}
                 />
               </Grid>
             </Grid>
@@ -130,7 +134,7 @@ export default function AddQuestion() {
               sx={{ mt: 3, mb: 2 }}
               onClick={handleSubmit}
             >
-              Create Test
+              Create Question
             </Button>
           </Box>
         </Box>
