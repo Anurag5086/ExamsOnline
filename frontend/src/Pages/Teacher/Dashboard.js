@@ -34,7 +34,7 @@ export default function Dashboard() {
                 </Typography>
                 </CardContent>
                 <CardActions>
-                <Button size="small" variant="outlined">Create Test</Button>
+                <Button size="small" variant="outlined">View All Tests</Button>
             </CardActions>
         </Card>
         </Box>

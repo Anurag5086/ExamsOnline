@@ -9,7 +9,7 @@ import CreateTest from "./Pages/Teacher/CreateTest";
 import AddQuestion from "./Pages/Teacher/AddQuestion";
 import AddNotice from "./Pages/Teacher/AddNotice";
 import QuestionBank from "./Pages/Student/QuestionBank";
-import Test from "./Pages/Test";
+import Test from "./Pages/Test/Test";
 
 function App() {
   return (
