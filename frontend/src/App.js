@@ -9,6 +9,7 @@ import CreateTest from "./Pages/Teacher/CreateTest";
 import AddQuestion from "./Pages/Teacher/AddQuestion";
 import AddNotice from "./Pages/Teacher/AddNotice";
 import QuestionBank from "./Pages/Student/QuestionBank";
+import Test from "./Pages/Test";
 
 function App() {
   return (
@@ -37,6 +38,9 @@ function App() {
         </Route>
         <Route exact path="/student/questionBank">
           <QuestionBank />
+        </Route>
+        <Route exact path="/teacher/test/:testID">
+          <Test />
         </Route>
       </Switch>
     </Router>
