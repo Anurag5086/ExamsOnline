@@ -21,7 +21,12 @@ export default function Testlist() {
     <List sx={{ width: "100%", bgcolor: "background.paper" }}>
       {tests.map((test) => (
         <>
-          <ListItem alignItems="flex-start">
+          <ListItem
+            alignItems="flex-start"
+            onClick={() => {
+              window.location.href = `/test/${test.testId}`;
+            }}
+          >
             <ListItemText
               primary={test.testtitle}
               secondary={
