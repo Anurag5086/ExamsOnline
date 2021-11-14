@@ -6,6 +6,7 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
+import { Link } from "react-router-dom";
 
 export default function Navbar() {
   return (
@@ -22,7 +23,9 @@ export default function Navbar() {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            WELCOME
+            <Link to="/teacher/dashboard" style={{textDecoration: 'none', color: 'white'}}>
+              WELCOME
+            </Link>
           </Typography>
           <Button color="inherit">Create Test</Button>
           <Button color="inherit">Upload Notice</Button>
