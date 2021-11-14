@@ -37,7 +37,6 @@ const QuestionSchema = new Schema(
     },
     createdBy: {
       type: String,
-      required: true,
     },
     date: {
       type: Date,

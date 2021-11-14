@@ -31,7 +31,7 @@ function App() {
         <Route exact path="/student/dashboard">
           <StuDashboard />
         </Route>
-        <Route exact path="/teacher/addquestion">
+        <Route exact path="/test/:testID/addquestion">
           <AddQuestion />
         </Route>
         <Route exact path="/teacher/addnotice">

@@ -23,17 +23,26 @@ export default function CreateTest() {
   const [testTitle, setTestTitle] = useState();
   const [testDescription, setTestDescription] = useState();
   const [testSubject, setTestSubject] = useState();
+  const token = localStorage.getItem("creds").token;
 
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post("/api/test/createtest", {
-        testtitle: testTitle,
-        testsubject: testSubject,
-        testdescription: testDescription,
-        starttime: startvalue,
-        endtime: endvalue,
-      })
+      .post(
+        "http://localhost:5000/api/test/createtest",
+        {
+          testtitle: testTitle,
+          testsubject: testSubject,
+          testdescription: testDescription,
+          starttime: startvalue,
+          endtime: endvalue,
+        },
+        {
+          headers: {
+            token: token,
+          },
+        }
+      )
       .then((res) => console.log(res.data));
   };
 

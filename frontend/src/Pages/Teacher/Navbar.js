@@ -23,11 +23,16 @@ export default function Navbar() {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            <Link to="/teacher/dashboard" style={{textDecoration: 'none', color: 'white'}}>
+            <Link
+              to="/teacher/dashboard"
+              style={{ textDecoration: "none", color: "white" }}
+            >
               WELCOME
             </Link>
           </Typography>
-          <Button color="inherit">Create Test</Button>
+          <Button color="inherit" href="/teacher/createtest">
+            Create Test
+          </Button>
           <Button color="inherit">Upload Notice</Button>
         </Toolbar>
       </AppBar>

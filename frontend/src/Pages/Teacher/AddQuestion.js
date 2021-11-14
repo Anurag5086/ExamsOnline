@@ -11,6 +11,7 @@ import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Navbar from "./Navbar";
 import axios from "axios";
+import { useParams } from "react-router-dom";
 
 const theme = createTheme();
 
@@ -22,16 +23,39 @@ export default function AddQuestion() {
   const [option3, setOption3] = useState();
   const [option4, setOption4] = useState();
   const [correctOption, setCorrectOption] = useState();
+  let { testID } = useParams();
+  const token = localStorage.getItem("creds").token;
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // axios
-    //   .post("/api/test/createtest", {
-    //     testtitle: testTitle,
-    //     testsubject: testSubject,
-    //     testdescription: testDescription,
-    //   })
-    //   .then((res) => console.log(res.data));
+    axios
+      .post(
+        "http://localhost:5000/api/question/addquestion",
+        {
+          title: questionTitle,
+          description: questionDescription,
+          option1,
+          option2,
+          option3,
+          option4,
+          correctOption,
+          testId: testID,
+        },
+        {
+          headers: {
+            token: token,
+          },
+        }
+      )
+      .then((res) => {
+        window.location.reload();
+        alert("Question Successfully added!");
+      })
+      .catch((e) =>
+        alert(
+          "Error! Enter the details carefully! All the fields are required!"
+        )
+      );
   };
 
   return (
