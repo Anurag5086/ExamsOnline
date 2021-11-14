@@ -25,7 +25,15 @@ export default function QuestionList() {
             <ListItemText
               primary={question.title}
               secondary={
-                <React.Fragment>{question.description}</React.Fragment>
+                <React.Fragment>
+                  {question.description}
+                  <ul>
+                    <li>{question.option1}</li>
+                    <li>{question.option2}</li>
+                    <li>{question.option3}</li>
+                    <li>{question.option4}</li>
+                  </ul>
+                </React.Fragment>
               }
             />
           </ListItem>
