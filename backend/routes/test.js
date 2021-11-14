@@ -1,9 +1,8 @@
 const express = require("express");
-const { createTest } = require("../controllers/test.controller");
+const { createTest, getAllTests } = require("../controllers/test.controller");
 const router = express();
 
 router.post("/createtest", createTest);
-//get test
-//notice routes
+router.get("/gettests", getAllTests);
 
 module.exports = router;

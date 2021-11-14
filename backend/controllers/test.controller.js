@@ -55,6 +55,20 @@ const createTest = async (req, res) => {
   }
 };
 
+const getAllTests = async (req, res) => {
+  try {
+    const tests = await Test.find();
+    if (tests) {
+      res.status(200).json({ status: "ok", tests });
+    } else {
+      res.status(400).json({ status: "error", message: "Tests not found!" });
+    }
+  } catch {
+    res.status(500).json({ status: "error", message: "Server error!" });
+  }
+};
+
 module.exports = {
   createTest,
+  getAllTests,
 };

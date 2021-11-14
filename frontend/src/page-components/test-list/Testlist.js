@@ -1,56 +1,37 @@
-import React from 'react';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import Divider from '@mui/material/Divider';
-import ListItemText from '@mui/material/ListItemText';
-
+import React, { useState, useEffect } from "react";
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
+import Divider from "@mui/material/Divider";
+import ListItemText from "@mui/material/ListItemText";
+import axios from "axios";
 
 export default function Testlist() {
+  const [tests, setTests] = useState([]);
+
+  useEffect(() => {
+    const getTests = async () => {
+      await axios
+        .get("http://localhost:5000/api/test/gettests")
+        .then((res) => setTests(res.data.tests));
+    };
+    getTests();
+  }, []);
+
   return (
-    <List sx={{ width: '100%', bgcolor: 'background.paper' }}>
-      <ListItem alignItems="flex-start">
-        <ListItemText
-          primary="OOSE CLASS TEST-1"
-          secondary={
-            <React.Fragment>
-              {"15 MCQs, 20 min"}
-            </React.Fragment>
-          }
-        />
-      </ListItem>
-      <Divider />
-      <ListItem alignItems="flex-start">
-        <ListItemText
-          primary="ADA CLASS TEST-1"
-          secondary={
-            <React.Fragment>
-              {"10 MCQs + 4 Subjective Questions, 60 mins"}
-            </React.Fragment>
-          }
-        />
-      </ListItem>
-      <Divider  />
-      <ListItem alignItems="flex-start">
-        <ListItemText
-          primary="OOSE MINOR TEST-1"
-          secondary={
-            <React.Fragment>
-              {"10 MCQs, 15 min"}
-            </React.Fragment>
-          }
-        />
-      </ListItem>
-      <Divider  />
-      <ListItem alignItems="flex-start">
-        <ListItemText
-          primary="MDA MINOR TEST-1"
-          secondary={
-            <React.Fragment>
-              {"20 MCQs, 30 mins"}
-            </React.Fragment>
-          }
-        />
-      </ListItem>
+    <List sx={{ width: "100%", bgcolor: "background.paper" }}>
+      {tests.map((test) => (
+        <>
+          <ListItem alignItems="flex-start">
+            <ListItemText
+              primary={test.testtitle}
+              secondary={
+                <React.Fragment>{test.testdescription}</React.Fragment>
+              }
+            />
+          </ListItem>
+          <Divider />
+        </>
+      ))}
     </List>
   );
 }
