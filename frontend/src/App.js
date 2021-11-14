@@ -8,6 +8,7 @@ import StuDashboard from "./Pages/Student/StuDashboard";
 import CreateTest from "./Pages/Teacher/CreateTest";
 import AddQuestion from "./Pages/Teacher/AddQuestion";
 import AddNotice from "./Pages/Teacher/AddNotice";
+import QuestionBank from "./Pages/Student/QuestionBank";
 
 function App() {
   return (
@@ -33,6 +34,9 @@ function App() {
         </Route>
         <Route exact path="/teacher/addnotice">
           <AddNotice />
+        </Route>
+        <Route exact path="/student/questionBank">
+          <QuestionBank />
         </Route>
       </Switch>
     </Router>
