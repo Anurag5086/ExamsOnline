@@ -15,23 +15,6 @@ import DateTimePicker from "@mui/lab/DateTimePicker";
 import Navbar from "./Navbar";
 import axios from "axios";
 
-// export function BasicDateTimePicker(props) {
-//   const [value, setValue] = React.useState(new Date());
-
-//   return (
-//     <LocalizationProvider dateAdapter={AdapterDateFns}>
-//       <DateTimePicker
-//         renderInput={(props) => <TextField {...props} />}
-//         label="DateTimePicker"
-//         value={value}
-//         onChange={(newValue) => {
-//           setValue(newValue);
-//         }}
-//       />
-//     </LocalizationProvider>
-//   );
-// }
-
 const theme = createTheme();
 
 export default function CreateTest() {
