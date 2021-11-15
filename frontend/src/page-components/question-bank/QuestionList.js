@@ -32,61 +32,77 @@ export default function QuestionList() {
 
   return (
     <List sx={{ width: "100%", bgcolor: "background.paper" }}>
-      {questions.map((question) => (
-        <>
-          <ListItem alignItems="flex-start">
-            <ListItemText
-              primary={question.description}
-              secondary={
-                <React.Fragment>
-                  <FormControl component="fieldset">
-                    <FormLabel component="legend">Options</FormLabel>
-                    <RadioGroup
-                      aria-label="answer"
-                      defaultValue="Establishing relations"
-                      name="options"
-                    >
-                      <FormControlLabel
-                        value={question.option1}
-                        control={<Radio />}
-                        label={question.option1}
-                        onClick={() =>
-                          checkAnswer(question.correctOption, question.option1)
-                        }
-                      />
-                      <FormControlLabel
-                        value={question.option2}
-                        control={<Radio />}
-                        label={question.option2}
-                        onClick={() =>
-                          checkAnswer(question.correctOption, question.option2)
-                        }
-                      />
-                      <FormControlLabel
-                        value={question.option3}
-                        control={<Radio />}
-                        label={question.option3}
-                        onClick={() =>
-                          checkAnswer(question.correctOption, question.option3)
-                        }
-                      />
-                      <FormControlLabel
-                        value={question.option4}
-                        control={<Radio />}
-                        label={question.option4}
-                        onClick={() =>
-                          checkAnswer(question.correctOption, question.option4)
-                        }
-                      />
-                    </RadioGroup>
-                  </FormControl>
-                </React.Fragment>
-              }
-            />
-          </ListItem>
-          <Divider />
-        </>
-      ))}
+      <ol>
+        {questions.map((question) => (
+          <>
+            <li>
+              <ListItem alignItems="flex-start">
+                <ListItemText
+                  primary={question.description}
+                  secondary={
+                    <React.Fragment>
+                      <FormControl component="fieldset">
+                        <FormLabel component="legend">Options</FormLabel>
+                        <RadioGroup
+                          aria-label="answer"
+                          defaultValue="Establishing relations"
+                          name="options"
+                        >
+                          <FormControlLabel
+                            value={question.option1}
+                            control={<Radio />}
+                            label={question.option1}
+                            onClick={() =>
+                              checkAnswer(
+                                question.correctOption,
+                                question.option1
+                              )
+                            }
+                          />
+                          <FormControlLabel
+                            value={question.option2}
+                            control={<Radio />}
+                            label={question.option2}
+                            onClick={() =>
+                              checkAnswer(
+                                question.correctOption,
+                                question.option2
+                              )
+                            }
+                          />
+                          <FormControlLabel
+                            value={question.option3}
+                            control={<Radio />}
+                            label={question.option3}
+                            onClick={() =>
+                              checkAnswer(
+                                question.correctOption,
+                                question.option3
+                              )
+                            }
+                          />
+                          <FormControlLabel
+                            value={question.option4}
+                            control={<Radio />}
+                            label={question.option4}
+                            onClick={() =>
+                              checkAnswer(
+                                question.correctOption,
+                                question.option4
+                              )
+                            }
+                          />
+                        </RadioGroup>
+                      </FormControl>
+                    </React.Fragment>
+                  }
+                />
+              </ListItem>
+              <Divider />
+            </li>
+          </>
+        ))}
+      </ol>
     </List>
   );
 }

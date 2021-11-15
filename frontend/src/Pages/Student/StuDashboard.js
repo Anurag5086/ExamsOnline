@@ -15,88 +15,129 @@ function StuDashboard() {
       <Navbar />
       <Box sx={{ flexGrow: 1 }}>
         <Grid container spacing={2}>
-        <Grid item xs={6} style={{padding: '2rem'}}>
+          <Grid item xs={6} style={{ padding: "2rem" }}>
             <Box sx={{ minWidth: 275 }}>
               <Card variant="outlined">
                 <CardContent>
-                  <Typography variant="h5" color="text.secondary" gutterBottom style={{textAlign: 'center'}}>
+                  <Typography
+                    variant="h5"
+                    color="text.secondary"
+                    gutterBottom
+                    style={{ textAlign: "center" }}
+                  >
                     PREVIOUS TESTS
                   </Typography>
                   <ol>
-                  <li>
-                  <Typography sx={{ mb: 1.5 }} color="text.secondary">
-                    <div style={{display: 'flex', justifyContent:'space-between'}}>
-                      <p>OOSE CLASS TEST-1</p>
-                      <p>17/08/2021</p>
-                    </div>
-                  </Typography>
-                  </li>
-                  <li>
-                  <Typography sx={{ mb: 1.5 }} color="text.secondary">
-                    <div style={{display: 'flex', justifyContent:'space-between'}}>
-                      <p>MDA CLASS TEST-1</p>
-                      <p>20/10/2021</p>
-                    </div>
-                  </Typography>
-                  </li>
-                  <li>
-                  <Typography sx={{ mb: 1.5 }} color="text.secondary">
-                    <div style={{display: 'flex', justifyContent:'space-between'}}>
-                      <p>ADA CLASS TEST-1</p>
-                      <p>7/09/2021</p>
-                    </div>
-                  </Typography>
-                  </li>
+                    <li>
+                      <Typography sx={{ mb: 1.5 }} color="text.secondary">
+                        <div
+                          style={{
+                            display: "flex",
+                            justifyContent: "space-between",
+                          }}
+                        >
+                          <p>OOSE CLASS TEST-1</p>
+                          <p>17/08/2021</p>
+                        </div>
+                      </Typography>
+                    </li>
+                    <li>
+                      <Typography sx={{ mb: 1.5 }} color="text.secondary">
+                        <div
+                          style={{
+                            display: "flex",
+                            justifyContent: "space-between",
+                          }}
+                        >
+                          <p>MDA CLASS TEST-1</p>
+                          <p>20/10/2021</p>
+                        </div>
+                      </Typography>
+                    </li>
+                    <li>
+                      <Typography sx={{ mb: 1.5 }} color="text.secondary">
+                        <div
+                          style={{
+                            display: "flex",
+                            justifyContent: "space-between",
+                          }}
+                        >
+                          <p>ADA CLASS TEST-1</p>
+                          <p>7/09/2021</p>
+                        </div>
+                      </Typography>
+                    </li>
                   </ol>
                   <Button size="small" variant="outlined" href="/test">
                     View All Tests
                   </Button>
                 </CardContent>
-                <CardActions>
-                </CardActions>
+                <CardActions></CardActions>
               </Card>
             </Box>
           </Grid>
-          <Grid item xs={6} style={{padding: '2rem'}}>
+          <Grid item xs={6} style={{ padding: "2rem" }}>
             <Box sx={{ minWidth: 275 }}>
               <Card variant="outlined">
                 <CardContent>
-                  <Typography variant="h5" color="text.secondary" gutterBottom style={{textAlign: "center"}}>
+                  <Typography
+                    variant="h5"
+                    color="text.secondary"
+                    gutterBottom
+                    style={{ textAlign: "center" }}
+                  >
                     UPCOMING TESTS
                   </Typography>
                   <ol>
-                  <li>
-                  <Typography sx={{ mb: 1.5 }} color="text.secondary">
-                    <div style={{display: 'flex', justifyContent:'space-between'}}>
-                      <p>OOSE CLASS TEST-2</p>
-                      <p>17/11/2021</p>
-                    </div>
-                  </Typography>
-                  </li>
-                  <li>
-                  <Typography sx={{ mb: 1.5 }} color="text.secondary">
-                    <div style={{display: 'flex', justifyContent:'space-between'}}>
-                      <p>OOSE CLASS TEST-2</p>
-                      <p>17/11/2021</p>
-                    </div>
-                  </Typography>
-                  </li>
-                  <li>
-                  <Typography sx={{ mb: 1.5 }} color="text.secondary">
-                    <div style={{display: 'flex', justifyContent:'space-between'}}>
-                      <p>OOSE CLASS TEST-2</p>
-                      <p>17/11/2021</p>
-                    </div>
-                  </Typography>
-                  </li>
+                    <li>
+                      <Typography sx={{ mb: 1.5 }} color="text.secondary">
+                        <div
+                          style={{
+                            display: "flex",
+                            justifyContent: "space-between",
+                          }}
+                        >
+                          <p>OOSE CLASS TEST-2</p>
+                          <p>17/11/2021</p>
+                        </div>
+                      </Typography>
+                    </li>
+                    <li>
+                      <Typography sx={{ mb: 1.5 }} color="text.secondary">
+                        <div
+                          style={{
+                            display: "flex",
+                            justifyContent: "space-between",
+                          }}
+                        >
+                          <p>OOSE CLASS TEST-2</p>
+                          <p>17/11/2021</p>
+                        </div>
+                      </Typography>
+                    </li>
+                    <li>
+                      <Typography sx={{ mb: 1.5 }} color="text.secondary">
+                        <div
+                          style={{
+                            display: "flex",
+                            justifyContent: "space-between",
+                          }}
+                        >
+                          <p>OOSE CLASS TEST-2</p>
+                          <p>17/11/2021</p>
+                        </div>
+                      </Typography>
+                    </li>
                   </ol>
+                  <Button size="small" variant="outlined" href="/test">
+                    View All Tests
+                  </Button>
                 </CardContent>
-                <CardActions>
-                </CardActions>
+                <CardActions></CardActions>
               </Card>
             </Box>
           </Grid>
-          <Grid item xs={12} style={{padding: '2rem'}}>
+          <Grid item xs={12} style={{ padding: "2rem" }}>
             <Card variant="outlined">
               <Typography
                 variant="h5"

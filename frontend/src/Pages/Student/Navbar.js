@@ -6,9 +6,13 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
-import {Link} from "react-router-dom"
+import { Link } from "react-router-dom";
 
 export default function Navbar() {
+  const handleSignOut = () => {
+    localStorage.removeItem("creds");
+  };
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
@@ -23,12 +27,20 @@ export default function Navbar() {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            <Link to="/student/dashboard" style={{textDecoration: 'none', color: 'white'}}>
-            WELCOME
+            <Link
+              to="/student/dashboard"
+              style={{ textDecoration: "none", color: "white" }}
+            >
+              WELCOME
             </Link>
           </Typography>
           <Button color="inherit">Generate Report</Button>
-          <Button href="/student/questionBank" color="inherit">Try Previous Questions</Button>
+          <Button href="/student/questionBank" color="inherit">
+            Try Previous Questions
+          </Button>
+          <Button href="/" color="inherit" onClick={handleSignOut}>
+            Sign Out
+          </Button>
         </Toolbar>
       </AppBar>
     </Box>

@@ -19,24 +19,28 @@ export default function Testlist() {
 
   return (
     <List sx={{ width: "100%", bgcolor: "background.paper" }}>
-      {tests.map((test) => (
-        <>
-          <ListItem
-            alignItems="flex-start"
-            onClick={() => {
-              window.location.href = `/test/${test.testId}`;
-            }}
-          >
-            <ListItemText
-              primary={test.testtitle}
-              secondary={
-                <React.Fragment>{test.testdescription}</React.Fragment>
-              }
-            />
-          </ListItem>
-          <Divider />
-        </>
-      ))}
+      <ol>
+        {tests.map((test) => (
+          <>
+            <li>
+              <ListItem
+                alignItems="flex-start"
+                onClick={() => {
+                  window.location.href = `/test/${test.testId}`;
+                }}
+              >
+                <ListItemText
+                  primary={test.testtitle}
+                  secondary={
+                    <React.Fragment>{test.testdescription}</React.Fragment>
+                  }
+                />
+              </ListItem>
+              <Divider />
+            </li>
+          </>
+        ))}
+      </ol>
     </List>
   );
 }

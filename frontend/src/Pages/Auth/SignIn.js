@@ -55,18 +55,19 @@ export default function SignIn() {
 
   return (
     <ThemeProvider theme={theme}>
-      <Container component="main" maxWidth="md">
+      <Typography
+        component="h1"
+        variant="h3"
+        style={{ textAlign: "center", padding: "3rem" }}
+      >
+        Welcome to Online Examination System
+      </Typography>
+      <Container component="main" maxWidth="xs">
         <CssBaseline />
-        <Typography
-          component="h1"
-          variant="h3"
-          style={{ textAlign: "center", padding: "3rem" }}
-        >
-          WELCOME TO ONLINE EXAMINATION SYSTEM
-        </Typography>
+
         <Box
           sx={{
-            marginTop: 8,
+            marginTop: 4,
             display: "flex",
             flexDirection: "column",
             alignItems: "center",

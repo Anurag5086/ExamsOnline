@@ -9,6 +9,10 @@ import MenuIcon from "@mui/icons-material/Menu";
 import { Link } from "react-router-dom";
 
 export default function Navbar() {
+  const handleSignOut = () => {
+    localStorage.removeItem("creds");
+  };
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
@@ -33,7 +37,12 @@ export default function Navbar() {
           <Button color="inherit" href="/teacher/createtest">
             Create Test
           </Button>
-          <Button color="inherit" href="/teacher/addNotice">Upload Notice</Button>
+          <Button color="inherit" href="/teacher/addNotice">
+            Upload Notice
+          </Button>
+          <Button href="/" color="inherit" onClick={handleSignOut}>
+            Sign Out
+          </Button>
         </Toolbar>
       </AppBar>
     </Box>

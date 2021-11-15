@@ -43,7 +43,7 @@ const addQuestion = async (req, res) => {
     });
   }
 
-  const user = await verifyTeacher(req, res);
+  const user = await verifyTeacher(token);
 
   if (!user) {
     return res
