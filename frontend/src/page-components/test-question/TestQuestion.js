@@ -35,10 +35,9 @@ function TestQuestion() {
         ))} */}
         <ListItem alignItems="flex-start">
               <ListItemText
-                primary="OOSE"
+                primary="What is the first step in the creation of collaboration diagram?"
                 secondary={
                   <React.Fragment>
-                    {"What is the first step in the creation of collaboration diagram?"}
                     <FormControl component="fieldset">
                     <FormLabel component="legend">Options</FormLabel>
                     <RadioGroup

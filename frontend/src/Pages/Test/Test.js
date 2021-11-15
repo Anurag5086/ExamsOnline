@@ -8,10 +8,14 @@ function Test() {
 
   return(
     <div>
-      <h1>OOSE CLASS TEST-1</h1>
-      <h5>15 MCQs, 20 min</h5>
+      <h1 style={{textAlign: "center"}}>OOSE CLASS TEST-1</h1>
+      <h3 style={{textAlign: "center"}}>15 MCQs, 20 min</h3>
+      <ol>
+      <li>
       <TestQuestion />
-      <Button>Submit Test</Button>
+      </li>
+      </ol>
+      <Button variant="contained" style={{display:'flex', margin: 'auto'}}>Submit Test</Button>
     </div>
   );
 }

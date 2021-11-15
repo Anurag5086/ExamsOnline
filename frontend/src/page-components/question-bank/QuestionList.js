@@ -4,6 +4,12 @@ import ListItem from "@mui/material/ListItem";
 import Divider from "@mui/material/Divider";
 import ListItemText from "@mui/material/ListItemText";
 import axios from "axios";
+import Radio from '@mui/material/Radio';
+import RadioGroup from '@mui/material/RadioGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import FormControl from '@mui/material/FormControl';
+import FormLabel from '@mui/material/FormLabel';
+import Button from '@mui/material/Button';
 
 export default function QuestionList() {
   const [questions, setQuestions] = useState([]);
@@ -17,22 +23,34 @@ export default function QuestionList() {
     getQuestions();
   }, []);
 
+  let handleSubmit = (e) => {
+    let option= e.target.value;
+    
+  }
+
   return (
     <List sx={{ width: "100%", bgcolor: "background.paper" }}>
       {questions.map((question) => (
         <>
           <ListItem alignItems="flex-start">
             <ListItemText
-              primary={question.title}
+              primary={question.description}
               secondary={
                 <React.Fragment>
-                  {question.description}
-                  <ul>
-                    <li>{question.option1}</li>
-                    <li>{question.option2}</li>
-                    <li>{question.option3}</li>
-                    <li>{question.option4}</li>
-                  </ul>
+                  <FormControl component="fieldset">
+                  <FormLabel component="legend">Options</FormLabel>
+                  <RadioGroup
+                      aria-label="answer"
+                      defaultValue="Establishing relations"
+                      name="options"
+                  >
+                      <FormControlLabel value={question.option1} control={<Radio />} label={question.option1} />
+                      <FormControlLabel value={question.option2} control={<Radio />} label={question.option2} />
+                      <FormControlLabel value={question.option3} control={<Radio />} label={question.option3} />
+                      <FormControlLabel value={question.option4} control={<Radio />} label={question.option4} />
+                  </RadioGroup>
+                  </FormControl>
+                  <Button variant="contained" style={{display:'flex', margin: 'auto'}} onSubmit={handleSubmit}>Submit Test</Button>
                 </React.Fragment>
               }
             />
