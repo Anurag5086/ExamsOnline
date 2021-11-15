@@ -7,6 +7,7 @@ import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import AlignItemsList from "../../page-components/Teacher/List";
+import { Button } from "@mui/material";
 
 function StuDashboard() {
   return (
@@ -19,7 +20,7 @@ function StuDashboard() {
               <Card variant="outlined">
                 <CardContent>
                   <Typography variant="h5" color="text.secondary" gutterBottom style={{textAlign: 'center'}}>
-                    TESTS
+                    PREVIOUS TESTS
                   </Typography>
                   <ol>
                   <li>
@@ -47,6 +48,9 @@ function StuDashboard() {
                   </Typography>
                   </li>
                   </ol>
+                  <Button size="small" variant="outlined" href="/test">
+                    View All Tests
+                  </Button>
                 </CardContent>
                 <CardActions>
                 </CardActions>
@@ -58,7 +62,7 @@ function StuDashboard() {
               <Card variant="outlined">
                 <CardContent>
                   <Typography variant="h5" color="text.secondary" gutterBottom style={{textAlign: "center"}}>
-                    SCHEDULED TESTS
+                    UPCOMING TESTS
                   </Typography>
                   <ol>
                   <li>
