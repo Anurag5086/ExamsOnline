@@ -24,7 +24,8 @@ export default function AddQuestion() {
   const [option4, setOption4] = useState();
   const [correctOption, setCorrectOption] = useState();
   let { testID } = useParams();
-  const token = localStorage.getItem("creds").token;
+  const creds = localStorage.getItem("creds");
+  const token = JSON.parse(creds).token;
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -48,7 +49,7 @@ export default function AddQuestion() {
         }
       )
       .then((res) => {
-        window.location.reload();
+        window.location.href = `/test/${testID}`;
         alert("Question Successfully added!");
       })
       .catch((e) =>

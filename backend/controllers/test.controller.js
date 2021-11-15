@@ -1,9 +1,6 @@
 const Test = require("../models/Test");
 const Joi = require("joi");
-const {
-  verifyTeacher,
-  verifyStudent,
-} = require("../middleware/authMiddleware");
+const { verifyTeacher } = require("../middleware/authMiddleware");
 
 const createTest = async (req, res) => {
   const isValid = Joi.object({
@@ -12,6 +9,7 @@ const createTest = async (req, res) => {
     endtime: Joi.date().required(),
     testtitle: Joi.string().required(),
     testsubject: Joi.string().required(),
+    testId: Joi.string().required(),
   }).validate(req.body, { abortEarly: false, allowUnknown: false });
 
   if (isValid.error) {
@@ -28,7 +26,7 @@ const createTest = async (req, res) => {
     });
   }
 
-  const user = verifyTeacher(token);
+  const user = await verifyTeacher(token);
 
   if (!user) {
     return res
@@ -38,10 +36,8 @@ const createTest = async (req, res) => {
 
   const { ...body } = req.body;
   const username = user.username;
-  const testId = `${req.body.testtitle}-8`;
   const testObj = new Test({
     ...body,
-    testId: testId,
     createdBy: username,
   });
 

@@ -8,7 +8,7 @@ const TestSchema = new Schema(
       required: true,
       unique: true,
     },
-    subject: {
+    testsubject: {
       type: String,
       required: true,
     },

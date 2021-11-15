@@ -1,28 +1,28 @@
 const jwt = require("jsonwebtoken");
 
-const verifyTeacher = (token) => {
+const verifyTeacher = async (token) => {
   let user;
 
   try {
-    user = jwt.verify(token, process.env.JWT_SECRET);
+    user = await jwt.verify(token, process.env.JWT_SECRET);
   } catch (error) {
     return undefined;
   }
 
   const usertype = user.usertype;
 
-  if (usertype == "Student") {
+  if (usertype === "Student") {
     return undefined;
   } else {
     return user;
   }
 };
 
-const verifyStudent = (token) => {
+const verifyStudent = async (token) => {
   let user;
 
   try {
-    user = jwt.verify(token, process.env.JWT_SECRET);
+    user = await jwt.verify(token, process.env.JWT_SECRET);
   } catch (error) {
     return undefined;
   }

@@ -23,10 +23,12 @@ export default function CreateTest() {
   const [testTitle, setTestTitle] = useState();
   const [testDescription, setTestDescription] = useState();
   const [testSubject, setTestSubject] = useState();
-  const token = localStorage.getItem("creds").token;
+  const creds = localStorage.getItem("creds");
+  const token = JSON.parse(creds).token;
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const testId = (Math.random() + 1).toString(36).substring(7);
     axios
       .post(
         "http://localhost:5000/api/test/createtest",
@@ -36,6 +38,7 @@ export default function CreateTest() {
           testdescription: testDescription,
           starttime: startvalue,
           endtime: endvalue,
+          testId: testId,
         },
         {
           headers: {
@@ -43,7 +46,9 @@ export default function CreateTest() {
           },
         }
       )
-      .then((res) => console.log(res.data));
+      .then((res) => {
+        window.location.href = `/test/${testId}`;
+      });
   };
 
   return (

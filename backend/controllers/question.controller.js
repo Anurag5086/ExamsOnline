@@ -43,7 +43,7 @@ const addQuestion = async (req, res) => {
     });
   }
 
-  const user = verifyTeacher(req, res);
+  const user = await verifyTeacher(req, res);
 
   if (!user) {
     return res
@@ -73,7 +73,17 @@ const addQuestion = async (req, res) => {
   }
 };
 
+const getTestQuestions = async (req, res) => {
+  try {
+    const ans = await Question.find({ testId: req.params.testId });
+    res.status(200).json({ questions: ans });
+  } catch {
+    res.status(400).json({ status: "error", message: "Test ID Invalid!" });
+  }
+};
+
 module.exports = {
   getAllQuestions,
   addQuestion,
+  getTestQuestions,
 };
