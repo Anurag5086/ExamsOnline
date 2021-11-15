@@ -33,7 +33,7 @@ export default function Navbar() {
           <Button color="inherit" href="/teacher/createtest">
             Create Test
           </Button>
-          <Button color="inherit">Upload Notice</Button>
+          <Button color="inherit" href="/teacher/addNotice">Upload Notice</Button>
         </Toolbar>
       </AppBar>
     </Box>
